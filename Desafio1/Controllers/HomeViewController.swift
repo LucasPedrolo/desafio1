@@ -9,14 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    var pokemon2 = ["pikachu", "charmander", "squirtle"]
-    var indexCount = 0
-    var pokemon: [Profile] = []
     var profile: Profile? {
         didSet {
             myLabel.text = profile?.name
         }
     }
+    var pokemon2 = ["pikachu", "charmander", "squirtle"]
+    var indexCount = 0
+    var pokemon: [Profile] = []
     
     lazy var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         layout.itemSize = CGSize(width: 60, height: 60)
         return layout
     }()
-            
+    
     lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView( frame: self.view.bounds, collectionViewLayout: layout)
         return collectionView
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController {
             Profile(id: 4, name: "Squirtle")
         ])
     }
-
+    
     func setCollectionView() {
         view.addSubview(collectionView)
         collectionView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 0), size: .init(width: 150, height: 100))
@@ -100,6 +100,3 @@ class HomeViewController: UIViewController {
         indexCount+=1
     }
 }
-
-
-// primeiro comecei querendo fazer com @escape, mas no final tive que dropar e fazer de forma mais chumbada e simples
